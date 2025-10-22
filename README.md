@@ -96,12 +96,12 @@ The level is built using a TileMap and TileSet for grid-based world layout.
   MoveAndSlide();
 - Animation switches between idle and directional walk cycles.
 
-###Enemy 
+### Enemy 
 - Navigation handled by NavigationAgent2D.
 - Continuously updates its target to the player’s position.
 - Triggers death particle on defeat.
 
-###Coin & Scoring 
+### Coin & Scoring 
 -Each coin increases score via: 
  ```csharp
  var scoreManager = GetTree().Root.GetNode<ScoreManager>("ScoreManager");
@@ -109,7 +109,7 @@ The level is built using a TileMap and TileSet for grid-based world layout.
 ```
 -Coin despawns with QueueFree() after pickup.
 
-###Particle Effects 
+### Particle Effects 
 -Implemented for death and collection events. 
 Controlled through Particles2D and ParticlesMaterial.
 
