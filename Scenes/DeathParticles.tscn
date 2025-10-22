@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://4hdqwh7ef8lj"]
+
+[ext_resource type="Texture2D" uid="uid://cwqkaax4aud55" path="res://Assets/Sprites/ParticleSprite.png" id="1_n4x03"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qw05o"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 180.0
+initial_velocity_min = 100.0
+initial_velocity_max = 300.0
+angular_velocity_min = -180.00002
+angular_velocity_max = 179.99998
+gravity = Vector3(0, 200, 0)
+scale_min = 0.5
+scale_max = 2.0
+color = Color(1, 0, 0, 1)
+
+[node name="DeathParticles" type="GPUParticles2D"]
+emitting = false
+amount = 27
+texture = ExtResource("1_n4x03")
+one_shot = true
+speed_scale = 2.0
+explosiveness = 1.0
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_qw05o")

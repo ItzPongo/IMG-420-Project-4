@@ -1,0 +1,74 @@
+[gd_scene load_steps=12 format=3 uid="uid://un0y14wnyj4r"]
+
+[ext_resource type="Script" uid="uid://1hfowtvv8fk3" path="res://Scenes/Player.gd" id="1_megsn"]
+[ext_resource type="Texture2D" uid="uid://cuoufvqxttkjl" path="res://Assets/Sprites/WalkDown1.png" id="2_yoq75"]
+[ext_resource type="Texture2D" uid="uid://brbjuvewlgc8u" path="res://Assets/Sprites/WalkDown2.png" id="3_ksbbd"]
+[ext_resource type="Texture2D" uid="uid://dm07nluxccs8m" path="res://Assets/Sprites/WalkDown3.png" id="4_glx4g"]
+[ext_resource type="Texture2D" uid="uid://b46h7084jvr5a" path="res://Assets/Sprites/WalkRight1.png" id="5_miouo"]
+[ext_resource type="Texture2D" uid="uid://fmfvfciwwwua" path="res://Assets/Sprites/WalkRight2.png" id="6_o3h8g"]
+[ext_resource type="Texture2D" uid="uid://d0cdkmp67dxp8" path="res://Assets/Sprites/WalkUp1.png" id="7_1e7my"]
+[ext_resource type="Texture2D" uid="uid://h3ry1muikt2c" path="res://Assets/Sprites/WalkUp2.png" id="8_arntx"]
+[ext_resource type="Texture2D" uid="uid://jdtakst1wbhr" path="res://Assets/Sprites/WalkUp3.png" id="9_lslt6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ulo2v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_yoq75")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ksbbd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_yoq75")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_glx4g")
+}],
+"loop": true,
+"name": &"WalkDown",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_miouo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_o3h8g")
+}],
+"loop": true,
+"name": &"WalkSideways",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_1e7my")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_arntx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_1e7my")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_lslt6")
+}],
+"loop": true,
+"name": &"WalkUp",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1iu4k"]
+size = Vector2(14, 16)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_megsn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ulo2v")
+animation = &"WalkDown"
+frame = 2
+frame_progress = 0.7614207
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_1iu4k")

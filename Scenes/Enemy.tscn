@@ -1,0 +1,86 @@
+[gd_scene load_steps=13 format=3 uid="uid://b6w256q3qy582"]
+
+[ext_resource type="Script" uid="uid://brj5clqgsprii" path="res://Scripts/Enemy.cs" id="1_0o0ue"]
+[ext_resource type="Texture2D" uid="uid://dqmrmkvwyu3oi" path="res://Assets/Sprites/EnemyDown1.png" id="2_6s1gy"]
+[ext_resource type="Texture2D" uid="uid://du2f6n8tmj1cs" path="res://Assets/Sprites/EnemyDown2.png" id="3_uihya"]
+[ext_resource type="Texture2D" uid="uid://1f438mq41asy" path="res://Assets/Sprites/EnemyDown3.png" id="4_27ry8"]
+[ext_resource type="Texture2D" uid="uid://dmm03vohxkqom" path="res://Assets/Sprites/EnemyRight1.png" id="5_esfq3"]
+[ext_resource type="Texture2D" uid="uid://dqg167gkuhr2v" path="res://Assets/Sprites/EnemyRight2.png" id="6_qlal6"]
+[ext_resource type="Texture2D" uid="uid://bwi4fekt2tkce" path="res://Assets/Sprites/EnemyRight3.png" id="7_dascy"]
+[ext_resource type="Texture2D" uid="uid://ctksb5s4spkb5" path="res://Assets/Sprites/EnemyUp1.png" id="8_rm7px"]
+[ext_resource type="Texture2D" uid="uid://b5j3yio2kxhr6" path="res://Assets/Sprites/EnemyUp2.png" id="9_5yix0"]
+[ext_resource type="Texture2D" uid="uid://cj7k4wg0ytomk" path="res://Assets/Sprites/EnemyUp3.png" id="10_imorw"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0vprv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_6s1gy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_uihya")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_6s1gy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_27ry8")
+}],
+"loop": true,
+"name": &"Down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_esfq3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_qlal6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_esfq3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_dascy")
+}],
+"loop": true,
+"name": &"Sideways",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_rm7px")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_5yix0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_rm7px")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_imorw")
+}],
+"loop": true,
+"name": &"Up",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0o0ue"]
+size = Vector2(91, 96)
+
+[node name="Enemy" type="CharacterBody2D"]
+position = Vector2(245, 195)
+script = ExtResource("1_0o0ue")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_0vprv")
+animation = &"Up"
+frame_progress = 0.17230858
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -1)
+shape = SubResource("RectangleShape2D_0o0ue")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+debug_enabled = true
